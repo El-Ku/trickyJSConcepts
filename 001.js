@@ -28,6 +28,8 @@ setTimeout(() => obj.print(), 200);     //prints "vipin"  (4th line)
 //Why does it work? 
 //Arrow functions don’t have their own `this`; they inherit this from the surrounding scope. 
 //Here, the surrounding scope is where obj.print() is called directly, so this is still obj.
+//But arrow functions do have their lexical environment. 
+//so if I change obj.name after I pass the function to setTimeout, after 200 ms it will still use the updated name.
 
 
 const fn = obj.print;
