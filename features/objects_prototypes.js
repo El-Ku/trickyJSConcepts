@@ -74,9 +74,11 @@ console.log(obj3.hasOwnProperty("a"));  //false (because its inherited property)
 console.log(obj2.c);   //undefined
 //above prints undefined because properties are looked up only in parents and not on childs.
 
+//changing a property on a parent dynamically updates the same property on all the childs.
 obj1.a = 11;
 console.log(obj1.a, obj2.a, obj3.a); // 11 11 11
-//changing a property on a parent dynamically updates the same property on all the childs.
+
+
 
 
 
