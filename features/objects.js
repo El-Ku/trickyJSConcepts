@@ -92,3 +92,12 @@ console.log(shape["name"]);  //prints undefined
 
 //Try to delete a property which doesnt exist on the object.
 delete shape.name;  //ignored
+
+
+//Create an object with properties from a variable
+const propName = "name";
+const propValue = "vip";
+const myObj = {
+  [propName]: propValue  //wrap around in square brackets.
+};
+console.log(myObj.name, myObj["name"], myObj[propName]);  //vip vip vip
