@@ -1,12 +1,17 @@
-// Every JavaScript object has an internal link to another object called its prototype. 
-// (accessed via __proto__ or Object.getPrototypeOf):
+Every JavaScript object has an internal link to another object called its prototype (accessed via __proto__ or Object.getPrototypeOf):
+
+```js
 const obj = {name: "object"};
 console.log(obj.__proto__);                 // [Object: null prototype] {}
 console.log(Object.prototype);              // [Object: null prototype] {}
 console.log(Object.getPrototypeOf(obj));    // [Object: null prototype] {}
+```
 
-// We can create prototypes in different ways:
-// 1. Constructor function
+We can create prototypes in different ways:
+
+### 1. Constructor function
+
+```js
 function Team(size) {
     this.size = size;
 };
@@ -20,11 +25,13 @@ console.log(team.size, team.name, team.getSize());
 console.log(Object.getPrototypeOf(team));
 console.log(team.__proto__);
 console.log(Team.prototype);
+```
 
-/*
-prototype can be added as a complete object as well, instead of adding properties one by one.
-For example:
+Prototype can be added as a complete object as well, instead of adding properties one by one.
 
+**For example:**
+
+```js
 team.prototype = { 
     name: "js",
     getSize() {
@@ -33,10 +40,12 @@ team.prototype = {
 }
 Team.prototype.oneMoreProp = "sample";
 console.log(team.oneMoreProp);  //sample
-*/
+```
 
 
-// 2. Classes
+### 2. Classes
+
+```js
 class Coin {
     constructor(name, symbol) {
         this.name = name;
@@ -53,16 +62,21 @@ eur.printName();
 console.log(Coin.prototype === eur.__proto__);  //true
 // Underneath, classes is the same as the constructor function approach.
 // Classes is just ES6 Syntactic Sugar
+```
 
-// 3. Manually Setting Prototypes
+### 3. Manually Setting Prototypes
+
+```js
 const Table = {
     numLegs: 4
 }
 const bigTable = Object.create(Table);
 console.log(bigTable.__proto__ === Table)
+```
 
+### Properties are looked up dynamically along the chain.
 
-// Properties are looked up dynamically along the chain.
+```js
 const obj1 = {a:1};
 const obj2 = Object.create(obj1);
 obj2.b = 2;
@@ -77,6 +91,7 @@ console.log(obj2.c);   //undefined
 //changing a property on a parent dynamically updates the same property on all the childs.
 obj1.a = 11;
 console.log(obj1.a, obj2.a, obj3.a); // 11 11 11
+```
 
 
 
