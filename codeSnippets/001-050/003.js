@@ -20,7 +20,7 @@ print1(a,b);
 /*Guess the output?
 10 20
 1000 2000
-100 200
+10 20
 
 Why? 
 
